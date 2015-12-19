@@ -1,0 +1,559 @@
+/**********************************************************************************
+
+	Project Name: Coming Soon Page
+	Project Description: A simple and clean coming soon page made exclusively for a Tuts+ Premium Course
+	File Name: styles.css
+	Author: Adi Purdila
+	Author URI: http://www.adipurdila.com
+	Version: 1.0.0
+	
+**********************************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 100%;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+	list-style-type: none;
+}
+
+
+
+
+/***********************************************************************************************/
+/* 1. ICON FONT */
+/***********************************************************************************************/
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Eveleth Clean Thin';
+	src: url('fonts/Yellow Design Studio - Eveleth Clean Thin.eot');
+	src: local('☺'), url('fonts/Yellow Design Studio - Eveleth Clean Thin.woff') format('woff'), url('fonts/Yellow Design Studio - Eveleth Clean Thin.ttf') format('truetype'), url('fonts/Yellow Design Studio - Eveleth Clean Thin.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon-google-plus:before,
+.icon-facebook:before,
+.icon-twitter:before,
+.icon-dribbble:before,
+.icon-linkedin:before,
+.icon-arrow-up:before {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-google-plus:before {
+	content: "\21";
+}
+.icon-facebook:before {
+	content: "\22";
+}
+.icon-twitter:before {
+	content: "\23";
+}
+.icon-dribbble:before {
+	content: "\24";
+}
+.icon-linkedin:before {
+	content: "\25";
+}
+.icon-arrow-up:before {
+	content: "\26";
+}
+
+
+
+
+
+/***********************************************************************************************/
+/* 2. LESS VARIABLES AND MIXINS */
+/***********************************************************************************************/
+@body-font: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+@special-font: 'Eveleth Clean Thin', Georgia, serif;
+@base-font-size: 14px;
+@baseline: (@base-font-size * 1.5);
+
+@heading-one-size: (@baseline * 1.5);
+@heading-one-leading: (@baseline * 2);
+@heading-two-size: @baseline;
+@heading-two-leading: (@baseline * 1.5);
+
+@text-color: #626262;
+@light-text-color: #c3c3c3;
+@heading-one-color: #330099;
+@link-color: #A65E11;
+@border-color: #D1D6D4;
+@progress-bar-outer: #f2f4e6;
+@progress-bar-inner: #a1c457;
+@freebie-bg: @heading-one-color;
+@form-bg: @heading-one-color;
+@freebie-bg: @heading-one-color;
+@placeholder-color: #ABA9A9;
+
+@default-spacing: (@baseline * 2);
+
+@image-folder: "../images/";
+
+.transition(@property: color, @duration: .2s, @ease: ease-in-out) {
+	-webkit-transition: @property @duration @ease;
+	-moz-transition: @property @duration @ease;
+	-o-transition: @property @duration @ease;
+	transition: @property @duration @ease;
+}
+
+
+
+
+
+/***********************************************************************************************/
+/* 3. TYPOGRAPHY AND GENERAL STYLING */
+/***********************************************************************************************/
+body {
+	background: transparent url("@{image-folder}Background.jpg");
+	color: @text-color;
+	font: 300 @base-font-size~"/"@baseline @body-font;
+}
+
+p {
+	margin-bottom: @baseline;
+}
+
+h1 {
+	color: @heading-one-color;
+	font: @heading-one-size~"/"@heading-one-leading @special-font;
+	margin: 0 auto;
+	width: 50%;
+}
+
+h2 {
+	font: @heading-two-size~"/"@heading-two-leading @special-font;
+	margin: 0 auto;
+	width: 70%;
+}
+
+h1,
+h2,
+h3 {
+	margin-bottom: @default-spacing;
+}
+
+a {
+	color: @link-color;
+	text-decoration: none;
+	.transition();
+	
+	&:hover {
+		color: @heading-one-color;
+	}
+}
+
+hr {
+	background-color: @border-color;
+	border: none;
+	height: 1px;
+	margin: @default-spacing auto;
+	width: 45%;
+}
+
+.placeholder {
+	color: @placeholder-color;
+}
+
+
+
+
+
+/***********************************************************************************************/
+/* 4. LAYOUT */
+/***********************************************************************************************/
+.container {
+	margin: 0 auto;
+	text-align: center;
+	width: 95%;
+}
+
+.page-section {
+	padding: @default-spacing 0;
+}
+
+
+
+
+
+/***********************************************************************************************/
+/* 5. HEADER */
+/***********************************************************************************************/
+.logo img {
+	margin-bottom: @default-spacing;
+}
+
+.main-header {
+	background-color: white;
+
+	h2 {
+		margin-bottom: 0;
+	}
+}
+
+
+
+
+
+/***********************************************************************************************/
+/* 6. FORM */
+/***********************************************************************************************/
+.form-container {
+	background: @form-bg url("@{image-folder}stardust.png");	
+	text-align: center;
+}
+
+#signup {
+	background: transparent url("@{image-folder}Coming-Soon-Banner.png") center center no-repeat;
+	opacity: 0.8;
+}
+
+form {
+	p {
+		margin-bottom: 6px;
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	input {
+		border: none;
+		font: 300 @base-font-size~"/"@baseline @body-font;
+		height: ((@baseline * 2) - 6);
+		outline: none;
+		text-align: center;
+		width: (@baseline * 12);
+	}
+	
+	input[type="submit"] {
+		background-color: @link-color;
+		color: white;
+		cursor: pointer;
+		text-transform: uppercase;
+		.transition(background-color);
+		
+		&:hover {
+			background-color: white;
+			color: @link-color;
+		}
+	}
+}
+
+.form-note {
+	color: @light-text-color;
+	font-size: (@base-font-size * .75);
+	margin: @baseline 0;
+}
+
+
+
+
+
+/***********************************************************************************************/
+/* 7. STATUS */
+/***********************************************************************************************/
+.ui-progressbar {
+	background: @progress-bar-outer url("@{image-folder}light-green-bg.jpg");
+	padding: 15px;
+	
+	.ui-progressbar-value {
+		background: @progress-bar-inner url("@{image-folder}dark-green-bg.jpg");
+		height: ((@baseline * 8) - 30);
+		position: relative;
+		
+		&:before {
+			content: "";
+			border-top: (@baseline - 15) solid transparent;
+			border-bottom: (@baseline - 15) solid transparent;
+			border-left: (@baseline - 15) solid darken(@progress-bar-inner, 3%);
+			height: 0;
+			position: absolute;
+			top: (@baseline + 3);
+			right: -(@baseline - 16);
+			width: 0;
+		}
+		
+		&.inwards:before {
+			border-right: (@baseline - 15) solid darken(@progress-bar-outer, 3%);
+			right: 0;
+		}
+		
+		.progress-description {
+			left: 100%;
+			margin-left: @baseline;
+			margin-top: @baseline;
+			text-align: left;
+			position: absolute;
+			width: (@baseline * 10);
+			
+			p {
+				margin-bottom: 0;
+			}
+		}
+		
+		&.inwards .progress-description {
+			color: darken(@progress-bar-inner, 30%);
+			left: auto;
+			margin-right: @baseline;			
+			right: 0;
+			text-align: right;
+		}
+	}
+}
+
+
+
+
+/***********************************************************************************************/
+/* 8. FREEBIE */
+/***********************************************************************************************/
+.freebie-container {
+	background-color: @freebie-bg;
+	color: @light-text-color;
+	padding: @default-spacing;
+	
+	h2 {
+		color: white;
+		margin-bottom: @baseline;
+	}
+	
+	h3 {
+		width: 40%;
+		margin: 0 auto (@baseline * 2) auto;
+	}
+	
+	img {
+		height: auto;
+		max-width: 812px;
+		width: 100%;
+	}
+}
+
+
+
+
+
+/***********************************************************************************************/
+/* 9. CONTACT */
+/***********************************************************************************************/
+.social {
+	li {
+		display: inline;
+		margin: 3px;
+		
+		a {
+			background-color: @link-color;
+			color: white;
+			display: inline-block;
+			height: (@baseline * 2);
+			position: relative;
+			.transition(background-color);
+			width: (@baseline * 2);
+			
+			&:hover {
+				background-color: @heading-one-color;
+			}
+			
+			span {
+				display: inline-block;
+				font-size: @baseline;
+				height: @baseline;
+				left: 50%;
+				margin: -(@baseline / 2) 0 0 -(@baseline / 2);
+				position: absolute;
+				top: 50%;
+				width: @baseline;
+			}
+		}
+	}
+}
+
+
+
+
+
+/***********************************************************************************************/
+/* 10. FOOTER */
+/***********************************************************************************************/
+.main-footer {
+	text-align: center;
+}
+
+.go-top {
+	background-color: black;
+	background-color: rgba(0, 0, 0, .2);
+	bottom: (@baseline * 2);
+	display: none;
+	height: (@baseline * 2);
+	position: fixed;
+	right: (@baseline * 2);
+	.transition(background-color);
+	width: (@baseline * 2);
+	
+	&:hover {
+		background-color: @link-color;
+		background-color: rgba(0, 0, 0, .5);
+	}
+	
+	span {
+		color: white;
+		display: inline-block;
+		font-size: @base-font-size;
+		left: 50%;
+		position: absolute;
+		height: @baseline;
+		margin: -(@baseline / 2) 0 0 -(@baseline / 2);
+		top: 50%;
+		width: @baseline;
+	}
+}
+
+
+
+
+
+/***********************************************************************************************/
+/* 11. FLUID LAYOUT */
+/***********************************************************************************************/
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	h1 {
+		width: 75%;
+	}
+
+	.ui-progressbar .ui-progressbar-value .progress-description {
+		width: 150px;
+	}
+	
+	.freebie-container h3 {
+		width: 80%;
+	}
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	.ui-progressbar .ui-progressbar-value {
+		height: ((@baseline * 4) - 30);
+		
+		&:before,
+		&.inwards:before {
+			top: 50%;
+			margin-top: -(@baseline - 15);
+		}
+
+		.progress-description {
+			margin-top: (@baseline - 3);
+			width: auto;
+
+			p {
+				display: none;
+				
+				&:first-child {
+					display: block;
+				}
+			}
+		}
+	}
+	
+	.go-top {
+		bottom: @baseline;
+		right: @baseline;
+	}
+}
+
+
+
+
+
+
+/***********************************************************************************************/
+/* 12. IE8 */
+/***********************************************************************************************/
+.ie8 {
+	form {
+		input {
+			padding-top: 8px;
+		}
+		
+		input[type="submit"] {
+			padding-top: 0;
+		}
+	}
+}
+
