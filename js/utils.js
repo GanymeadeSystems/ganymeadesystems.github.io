@@ -13,7 +13,7 @@ jQuery(function($)
                 'message': {
                     'from_email': launch.control@ganymeade.com,
                     'from_name': name,
-                    'text': email
+                    'text': email,
                     'headers': {
                         'Reply-To': email
                     },
