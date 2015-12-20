@@ -11,8 +11,9 @@ jQuery(function($)
             data: {
                 'key': '6-HPZmhhdGQ5NTQcOwiITw',
                 'message': {
-                    'from_email': email,
+                    'from_email': launch.control@ganymeade.com,
                     'from_name': name,
+                    'text': email
                     'headers': {
                         'Reply-To': email
                     },
